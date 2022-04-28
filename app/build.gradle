@@ -53,6 +53,9 @@ dependencies {
     implementation Dependencies.uiToolingPreview
     implementation Dependencies.lifecycleRuntime
     implementation Dependencies.activityCompose
+
+    implementation Dependencies.koin
+
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.testJunit
     androidTestImplementation Dependencies.espresso

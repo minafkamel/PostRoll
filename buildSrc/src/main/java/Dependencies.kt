@@ -16,6 +16,9 @@ object Versions {
     const val lifecycleRuntime = "2.3.1"
     const val activityCompose = "1.3.1"
 
+    // Koin
+    const val koin = "3.1.0"
+
     // Test
     const val jUnit = "4.13.2"
     const val espresso = "3.4.0"
@@ -32,6 +35,9 @@ object Dependencies {
     const val lifecycleRuntime =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+
+    // Koin
+    const val koin = "io.insert-koin:koin-android:${Versions.koin}"
 
     // Test
     const val junit = "junit:junit:${Versions.jUnit}"
