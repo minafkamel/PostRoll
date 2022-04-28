@@ -1,0 +1,1 @@
+/Users/minakamel/StudioProjects/PostRoll/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/minakamel/StudioProjects/PostRoll/buildSrc/build/classes/kotlin/main/Versions.class
