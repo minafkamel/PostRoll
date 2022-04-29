@@ -66,6 +66,8 @@ dependencies {
     implementation Dependencies.coroutinesAndroid
     implementation Dependencies.coroutinesCore
 
+    implementation Dependencies.apollo
+
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.testJunit
     androidTestImplementation Dependencies.espresso
