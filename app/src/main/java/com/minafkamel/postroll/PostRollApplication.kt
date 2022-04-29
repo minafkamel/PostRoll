@@ -1,6 +1,8 @@
 package com.minafkamel.postroll
 
 import android.app.Application
+import com.minafkamel.postroll.di.apiModule
+import com.minafkamel.postroll.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,7 +17,7 @@ class PostRollApplication : Application() {
             androidLogger(Level.DEBUG)
             androidContext(this@PostRollApplication)
             printLogger()
-            modules(listOf())
+            modules(listOf(networkModule, apiModule))
         }
     }
 }
