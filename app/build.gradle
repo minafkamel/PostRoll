@@ -1,6 +1,13 @@
+buildscript {
+    ext {
+        apollo = Versions.apollo
+    }
+}
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.apollographql.apollo3' version "${apollo}"
 }
 
 android {
@@ -56,9 +63,16 @@ dependencies {
 
     implementation Dependencies.koin
 
+    implementation Dependencies.coroutinesAndroid
+    implementation Dependencies.coroutinesCore
+
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.testJunit
     androidTestImplementation Dependencies.espresso
     androidTestImplementation Dependencies.uiTestJunit
     debugImplementation Dependencies.uiTooling
+}
+
+apollo {
+    packageName.set("com.minafkamel.postroll.data.models")
 }
