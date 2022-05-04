@@ -73,6 +73,9 @@ dependencies {
     androidTestImplementation Dependencies.espresso
     androidTestImplementation Dependencies.uiTestJunit
     debugImplementation Dependencies.uiTooling
+    testImplementation Dependencies.mockito
+    implementation Dependencies.kotlinTest
+
 }
 
 apollo {
