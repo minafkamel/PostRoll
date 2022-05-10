@@ -30,11 +30,10 @@ object Versions {
     const val loggingInterceptor = "4.9.0"
 
     // Test
-    const val jUnit = "4.13.2"
-    const val espresso = "3.4.0"
-    const val testJUnit = "1.1.3"
-    const val mockito = "2.2.0"
-    const val kotlinTest = "1.6.10"
+    const val junit = "4.13"
+    const val mockito = "3.4.6"
+    const val mockitoKotlin = "2.2.0"
+    const val junitExt = "1.1.1"
 }
 
 object Dependencies {
@@ -67,12 +66,10 @@ object Dependencies {
         "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
 
     // Test
-    const val junit = "junit:junit:${Versions.jUnit}"
-    const val testJunit = "androidx.test.ext:junit:${Versions.testJUnit}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-    const val uiTestJunit = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
-    const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-    const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito}"
-    const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.kotlinTest}"
+    const val junit = "junit:junit:${Versions.junit}"
+    const val mockito = "org.mockito:mockito-inline:${Versions.mockito}"
+    const val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
+    const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
+    const val mockitoCore = "org.mockito:mockito-core:${Versions.mockito}"
 
 }

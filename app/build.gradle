@@ -73,12 +73,10 @@ dependencies {
     implementation Dependencies.loggingInterceptor
 
     testImplementation Dependencies.junit
-    androidTestImplementation Dependencies.testJunit
-    androidTestImplementation Dependencies.espresso
-    androidTestImplementation Dependencies.uiTestJunit
-    debugImplementation Dependencies.uiTooling
+    testImplementation Dependencies.mockitoCore
+    testImplementation Dependencies.junitExt
+    testImplementation Dependencies.mockitoKotlin
     testImplementation Dependencies.mockito
-    implementation Dependencies.kotlinTest
 
 }
 

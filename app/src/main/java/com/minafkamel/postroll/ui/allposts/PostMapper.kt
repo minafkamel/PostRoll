@@ -2,7 +2,7 @@ package com.minafkamel.postroll.ui.allposts
 
 class PostMapper {
 
-    fun map(id: String, title: String, body: String) =
+    operator fun invoke(id: String, title: String, body: String) =
         PostViewEntity(id, title, """${body.take(BODY_MAX_LENGTH)}...""")
 
     class PostViewEntity(val id: String, val title: String, val body: String)
