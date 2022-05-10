@@ -1,4 +1,4 @@
-package com.minafkamel.postroll.data
+package com.minafkamel.postroll.data.posts
 
 class PostsRemoteDataSource(private val postApi: PostApi) {
 

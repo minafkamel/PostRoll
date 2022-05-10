@@ -1,9 +1,10 @@
-package com.minafkamel.postroll.data
+package com.minafkamel.postroll.data.posts
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.ApolloResponse
 import com.apollographql.apollo3.api.Optional
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
+import com.minafkamel.postroll.data.models.GetAllUsersQuery
 import com.minafkamel.postroll.data.models.GetPostQuery
 import com.minafkamel.postroll.data.models.type.PageQueryOptions
 import com.minafkamel.postroll.data.models.type.PaginateOptions

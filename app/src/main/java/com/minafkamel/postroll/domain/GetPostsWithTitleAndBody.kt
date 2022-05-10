@@ -1,6 +1,6 @@
 package com.minafkamel.postroll.domain
 
-import com.minafkamel.postroll.data.PostsRepository
+import com.minafkamel.postroll.data.posts.PostsRepository
 import com.minafkamel.postroll.domain.GetPostsWithTitleAndBody.Post
 import com.minafkamel.postroll.domain.base.NoParams
 import com.minafkamel.postroll.domain.base.UseCase

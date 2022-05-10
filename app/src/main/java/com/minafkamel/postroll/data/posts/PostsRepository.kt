@@ -1,4 +1,4 @@
-package com.minafkamel.postroll.data
+package com.minafkamel.postroll.data.posts
 
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
 import com.minafkamel.postroll.data.models.GetPostQuery
