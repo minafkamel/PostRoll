@@ -9,7 +9,6 @@ import com.minafkamel.postroll.domain.GetPostsWithTitleAndBody
 import com.minafkamel.postroll.domain.base.NoParams
 import com.minafkamel.postroll.ui.allposts.PostMapper.PostViewEntity
 import com.minafkamel.postroll.util.UiState
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class AllPostsViewModel(
@@ -32,6 +31,6 @@ class AllPostsViewModel(
         }
     }
 
-    private fun mapToViewEntity(it: List<GetPostsWithTitleAndBody.Post>) =
-        it.map { mapper.map(it.title, it.body) }
+    private fun mapToViewEntity(it: List<GetPosts.Post>) =
+        it.map { mapper.map(it.id, it.title, it.body) }
 }

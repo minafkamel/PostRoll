@@ -14,8 +14,16 @@ class GetPostsWithTitleAndBody(
     override suspend fun invoke(params: NoParams): Flow<List<Post>> {
         return postsRepository.getAllPosts()
             .map { item -> item.posts?.data!! }
-            .map { it.map { Post(it?.title!!, it?.body!!) } }
+            .map {
+                it.map {
+                    val data = checkNotNull(it)
+                    val id = checkNotNull(data.id)
+                    val title = checkNotNull(data.title)
+                    val body = checkNotNull(data.body)
+                    Post(id, title, body)
+                }
+            }
     }
 
-    data class Post(val title: String, val body: String)
+    data class Post(val id: String, val title: String, val body: String)
 }

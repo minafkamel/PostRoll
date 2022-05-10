@@ -13,7 +13,6 @@ import com.minafkamel.postroll.ui.LoadingView
 import com.minafkamel.postroll.util.UiState
 import org.koin.androidx.compose.getViewModel
 
-
 @Composable
 fun AllPostsScreen() {
     val viewModel = getViewModel<AllPostsViewModel>()
