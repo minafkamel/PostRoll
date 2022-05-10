@@ -15,6 +15,7 @@ object Versions {
     const val compose = "1.0.1"
     const val lifecycleRuntime = "2.3.1"
     const val activityCompose = "1.3.1"
+    const val navigation = "2.4.2"
 
     // Koin
     const val koin = "3.1.3"
@@ -46,6 +47,7 @@ object Dependencies {
     const val lifecycleRuntime =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
 
     // Koin
     const val koin = "io.insert-koin:koin-android:${Versions.koin}"
