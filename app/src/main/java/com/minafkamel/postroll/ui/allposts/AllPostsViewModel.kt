@@ -33,5 +33,5 @@ class AllPostsViewModel(
     }
 
     private fun mapToViewEntity(it: List<GetPosts.Post>) =
-        it.map { mapper.map(it.title, it.title, it.body) }
+        it.map { mapper.map(it.id, it.title, it.body) }
 }
