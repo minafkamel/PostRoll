@@ -1,8 +1,8 @@
 package com.minafkamel.postroll.data
 
-import com.minafkamel.postroll.data.models.PostApi
-
 class PostsRemoteDataSource(private val postApi: PostApi) {
 
-    suspend fun fetchAllPosts() = postApi.getAllPosts()
+    fun fetchAllPosts() = postApi.getAllPosts()
+
+    fun fetchPost(id: String) = postApi.getPost(id)
 }

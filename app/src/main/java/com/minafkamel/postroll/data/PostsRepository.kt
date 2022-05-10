@@ -1,20 +1,22 @@
 package com.minafkamel.postroll.data
 
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
-import com.minafkamel.postroll.error.Failure
-import com.minafkamel.postroll.util.Either
-import com.minafkamel.postroll.util.left
-import com.minafkamel.postroll.util.right
-import java.lang.Exception
+import com.minafkamel.postroll.data.models.GetPostQuery
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.map
 
 class PostsRepository(private val remoteDataSource: PostsRemoteDataSource) {
 
-    suspend fun getAllPosts(): Either<Failure, GetAllPostsQuery.Data> {
-        return try {
-            val result = remoteDataSource.fetchAllPosts()
-            right(result.dataAssertNoErrors)
-        } catch (e: Exception) {
-            left(Failure.UnexpectedFailure)
-        }
+    fun getAllPosts(): Flow<GetAllPostsQuery.Data> {
+        return remoteDataSource.fetchAllPosts()
+            .map { it.dataAssertNoErrors }
+            .catch { /** NO-OP**/ }
+    }
+
+    fun getPost(id: String): Flow<GetPostQuery.Data> {
+        return remoteDataSource.fetchPost(id)
+            .map { it.dataAssertNoErrors }
+            .catch { /** NO-OP**/ }
     }
 }
