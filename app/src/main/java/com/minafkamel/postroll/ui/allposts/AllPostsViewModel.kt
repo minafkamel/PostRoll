@@ -15,8 +15,7 @@ import kotlinx.coroutines.launch
 class AllPostsViewModel(
     private val getPosts: GetPosts,
     private val mapper: PostMapper
-) :
-    ViewModel() {
+) : ViewModel() {
 
     var allPosts by mutableStateOf<UiState<List<PostViewEntity>>>(UiState.Loading)
         private set
@@ -33,5 +32,5 @@ class AllPostsViewModel(
     }
 
     private fun mapToViewEntity(it: List<GetPosts.Post>) =
-        it.map { mapper.map(it.id, it.title, it.body) }
+        it.map { mapper(it.id, it.title, it.body) }
 }
