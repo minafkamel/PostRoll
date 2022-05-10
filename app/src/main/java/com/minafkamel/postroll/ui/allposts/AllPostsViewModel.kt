@@ -5,14 +5,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.minafkamel.postroll.domain.GetPostsWithTitleAndBody
+import com.minafkamel.postroll.domain.GetPosts
 import com.minafkamel.postroll.domain.base.NoParams
 import com.minafkamel.postroll.ui.allposts.PostMapper.PostViewEntity
 import com.minafkamel.postroll.util.UiState
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class AllPostsViewModel(
-    private val getPostsWithTitleAndBody: GetPostsWithTitleAndBody,
+    private val getPosts: GetPosts,
     private val mapper: PostMapper
 ) :
     ViewModel() {
@@ -23,7 +24,7 @@ class AllPostsViewModel(
     init {
         viewModelScope.launch {
             allPosts = UiState.Loading
-            getPostsWithTitleAndBody(NoParams)
+            getPosts(NoParams)
                 .map { mapToViewEntity(it) }
                 .collect {
                     allPosts = UiState.Success(it)
@@ -32,5 +33,5 @@ class AllPostsViewModel(
     }
 
     private fun mapToViewEntity(it: List<GetPosts.Post>) =
-        it.map { mapper.map(it.id, it.title, it.body) }
+        it.map { mapper.map(it.title, it.title, it.body) }
 }

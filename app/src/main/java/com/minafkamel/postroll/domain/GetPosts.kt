@@ -1,13 +1,13 @@
 package com.minafkamel.postroll.domain
 
 import com.minafkamel.postroll.data.posts.PostsRepository
-import com.minafkamel.postroll.domain.GetPostsWithTitleAndBody.Post
+import com.minafkamel.postroll.domain.GetPosts.Post
 import com.minafkamel.postroll.domain.base.NoParams
 import com.minafkamel.postroll.domain.base.UseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetPostsWithTitleAndBody(
+class GetPosts(
     private val postsRepository: PostsRepository
 ) : UseCase<NoParams, List<Post>> {
 
