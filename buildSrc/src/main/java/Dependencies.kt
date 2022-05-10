@@ -17,13 +17,16 @@ object Versions {
     const val activityCompose = "1.3.1"
 
     // Koin
-    const val koin = "3.1.0"
+    const val koin = "3.1.3"
 
     // Coroutines
     const val coroutines = "1.6.1"
 
     // Apollo
     const val apollo = "3.2.1"
+
+    // OkHttp
+    const val loggingInterceptor = "4.9.0"
 
     // Test
     const val jUnit = "4.13.2"
@@ -46,6 +49,7 @@ object Dependencies {
 
     // Koin
     const val koin = "io.insert-koin:koin-android:${Versions.koin}"
+    const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
 
     // Coroutines
     const val coroutinesAndroid =
@@ -55,6 +59,10 @@ object Dependencies {
 
     // Apollo
     const val apollo = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo}"
+
+    // OkHttp
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
 
     // Test
     const val junit = "junit:junit:${Versions.jUnit}"

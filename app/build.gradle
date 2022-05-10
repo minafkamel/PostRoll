@@ -62,11 +62,14 @@ dependencies {
     implementation Dependencies.activityCompose
 
     implementation Dependencies.koin
+    implementation Dependencies.koinCompose
 
     implementation Dependencies.coroutinesAndroid
     implementation Dependencies.coroutinesCore
 
     implementation Dependencies.apollo
+
+    implementation Dependencies.loggingInterceptor
 
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.testJunit
