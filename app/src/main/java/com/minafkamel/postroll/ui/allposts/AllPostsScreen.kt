@@ -1,54 +1,56 @@
 package com.minafkamel.postroll.ui.allposts
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.minafkamel.postroll.R
 import com.minafkamel.postroll.navigation.NavRoutes
 import com.minafkamel.postroll.ui.LoadingView
+import com.minafkamel.postroll.ui.allposts.PostMapper.PostViewEntity
+import com.minafkamel.postroll.ui.common.TopBar
 import com.minafkamel.postroll.util.UiState
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun AllPostsScreen(navController: NavHostController) {
     val viewModel = getViewModel<AllPostsViewModel>()
-    val scrollState = rememberLazyListState()
     val posts = viewModel.allPosts
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background
-    ) {
-        LazyColumn(state = scrollState) {
+    Scaffold(topBar = {
+        TopBar(stringResource(id = R.string.posts_title))
+    }) {
+        PostsBody(posts, navController)
+    }
+}
 
-            when (posts) {
-                is UiState.Success -> {
-                    item {
-                        posts.data.forEach {
-                            PostView(
-                                title = it.title,
-                                body = it.body,
-                                modifier = Modifier.padding(bottom = 16.dp)
+@Composable
+fun PostsBody(posts: UiState<List<PostViewEntity>>, navController: NavHostController) {
+    val scrollState = rememberLazyListState()
 
-                            ) {
-                                openDetails(navController, it.id)
-                            }
+    when (posts) {
+        is UiState.Success -> {
+            LazyColumn(state = scrollState) {
+                item {
+                    posts.data.forEach {
+                        PostView(
+                            title = it.title,
+                            body = it.body,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        ) {
+                            openDetails(navController, it.id)
                         }
-
-                    }
-                }
-                is UiState.Loading -> {
-                    item {
-                        LoadingView()
                     }
                 }
             }
+        }
+        is UiState.Loading -> {
+            LoadingView()
         }
     }
 }

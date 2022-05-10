@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="screen_padding">18dp</dimen>
+    <dimen name="posts_title_top_padding">8dp</dimen>
+    <dimen name="posts_title_bottom_padding">2dp</dimen>
+
+    <dimen name="posts_body_top_padding">2dp</dimen>
+    <dimen name="posts_body_bottom_padding">8dp</dimen>
+</resources>
