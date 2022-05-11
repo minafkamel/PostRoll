@@ -12,7 +12,7 @@ class GetPostDetails(
 ) : UseCase<GetPostDetails.Params, GetPostDetails.Details> {
 
     override suspend fun invoke(params: Params): Flow<Details> {
-        val allPostsFlow = repository.getAllPosts(true)
+        val allPostsFlow = repository.getAllPosts(false)
             .map { findPostById(it, params.id) }
 
         val detailsFlow = repository.getPostDetails(params.id)

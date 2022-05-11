@@ -14,9 +14,10 @@ class PostsRepository(
     fun getAllPosts(forceFetch: Boolean = true): Flow<GetAllPostsQuery.Data> {
         return if (forceFetch) {
             remoteDataSource.fetchAllPosts()
-                .map { it.dataAssertNoErrors }
-                .also { it.map { memoryDataSource.writePosts(it) } }
-                .catch { /** Log error **/ }
+                .map {
+                    memoryDataSource.writePosts(it.dataAssertNoErrors)
+                    it.dataAssertNoErrors
+                }.catch { /** Log error **/ }
         } else {
             memoryDataSource.readPosts()
                 .map { it!! }
