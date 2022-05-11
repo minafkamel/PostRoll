@@ -12,7 +12,7 @@ object Versions {
 
     // Android
     const val core = "1.7.0"
-    const val compose = "1.0.1"
+    const val compose = "1.1.0"
     const val lifecycleRuntime = "2.3.1"
     const val activityCompose = "1.3.1"
     const val navigation = "2.4.2"
@@ -71,5 +71,8 @@ object Dependencies {
     const val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val mockitoCore = "org.mockito:mockito-core:${Versions.mockito}"
+    const val composeUIiTest =  "androidx.compose.ui:ui-test:${Versions.compose}"
+    const val composeJunit =  "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    const val composeManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 
 }

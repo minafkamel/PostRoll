@@ -74,10 +74,13 @@ dependencies {
 
     testImplementation Dependencies.junit
     testImplementation Dependencies.mockitoCore
-    testImplementation Dependencies.junitExt
+    androidTestImplementation Dependencies.junitExt
     testImplementation Dependencies.mockitoKotlin
     testImplementation Dependencies.mockito
 
+    androidTestImplementation Dependencies.composeUIiTest
+    androidTestImplementation Dependencies.composeJunit
+    debugImplementation Dependencies.composeManifest
 }
 
 apollo {
