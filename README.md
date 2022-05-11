@@ -39,7 +39,7 @@ corresponding to queries in `getallposts.graphql` and `getpostdetails.graphql` r
 | Method | Description
 |--|--|
 | `getallposts.graphql` | Queries `id`, `title` and `body` needed for the first screen
-| `getpostdetails.graphql` | Queries `name` and `username` needed for the second screen (`title` and `body` could have been retrieved from that query as well however we cach them from first query to optimise network calls)
+| `getpostdetails.graphql` | Queries `name` and `username` needed for the second screen (`title` and `body` could have been retrieved from that query as well however we cache them from first query to optimise network calls)
 
 - Data Sources:  
   
@@ -85,7 +85,7 @@ Each layer has a set of objects suited to its needs. The Domain Layer does the m
 |--|--|--|
 | No mapping. Objects created by Apollo | Mapped in use cases. | Uses mappers to create models more suited to the UI displayed like string formatting. These entities have a `-ViewEntitiy` suffix to indicate they're view related. `PostsMapper` and `PostViewEntity` are examples |
 
-### Utils & extensions
+### Utils and extensions
 - `UiState`: A representation of loading and sucess state of the UI
 
 ### Tests
