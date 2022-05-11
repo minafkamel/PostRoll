@@ -17,7 +17,7 @@ import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class GetPostDetailsTest : TestCase() {
+class GetDetailsDetailsTest : TestCase() {
 
     @Test
     fun `creates Post domain object from getAllPosts and getPostDetails results`() = runBlocking {

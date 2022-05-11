@@ -10,7 +10,7 @@ import com.minafkamel.postroll.util.UiState
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val getPostDetails: GetPostDetails, postId: String) : ViewModel() {
-    var details by mutableStateOf<UiState<GetPostDetails.Post>>(UiState.Loading)
+    var details by mutableStateOf<UiState<GetPostDetails.Details>>(UiState.Loading)
         private set
 
     init {

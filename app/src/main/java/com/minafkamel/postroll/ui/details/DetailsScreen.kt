@@ -27,11 +27,11 @@ fun DetailsScreen() {
 }
 
 @Composable
-fun DetailsBody(details: UiState<GetPostDetails.Post>) {
+fun DetailsBody(details: UiState<GetPostDetails.Details>) {
     when (details) {
         is UiState.Success -> {
             DetailsView(
-                post = details.data,
+                details = details.data,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
         }

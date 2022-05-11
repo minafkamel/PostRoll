@@ -6,7 +6,7 @@ import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class PostMapperTest : TestCase() {
+class DetailsMapperTest : TestCase() {
 
     @Test
     fun `takes only first 120 chars from body then adds 3 dots`() {

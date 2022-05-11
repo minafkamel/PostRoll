@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.map
 
 class GetPostDetails(
     private val repository: PostsRepository
-) : UseCase<GetPostDetails.Params, GetPostDetails.Post> {
+) : UseCase<GetPostDetails.Params, GetPostDetails.Details> {
 
-    override suspend fun invoke(params: Params): Flow<Post> {
+    override suspend fun invoke(params: Params): Flow<Details> {
         val allPostsFlow = repository.getAllPosts(true)
             .map { findPostById(it, params.id) }
 
@@ -19,7 +19,7 @@ class GetPostDetails(
             .map { it.post!!.user }
 
         return allPostsFlow.combine(detailsFlow) { post, details ->
-            Post(post?.title!!, post.body!!, details?.name!!, details.username!!)
+            Details(post?.title!!, post.body!!, details?.name!!, details.username!!)
         }
     }
 
@@ -28,5 +28,5 @@ class GetPostDetails(
     }
 
     class Params(val id: String)
-    class Post(val title: String, val body: String, val name: String, val username: String)
+    class Details(val title: String, val body: String, val name: String, val username: String)
 }

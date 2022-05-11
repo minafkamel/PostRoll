@@ -16,7 +16,7 @@ import com.minafkamel.postroll.domain.GetPostDetails
 
 @Composable
 fun DetailsView(
-    post: GetPostDetails.Post,
+    details: GetPostDetails.Details,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -28,7 +28,7 @@ fun DetailsView(
     ) {
 
         Text(
-            post.title,
+            details.title,
             style = MaterialTheme.typography.h5,
             modifier = Modifier.padding(8.dp),
             fontWeight = FontWeight.Light
@@ -39,14 +39,14 @@ fun DetailsView(
             horizontalArrangement = Arrangement.End
         ) {
             Text(
-                post.name,
+                details.name,
                 style = MaterialTheme.typography.body2,
                 fontStyle = FontStyle.Italic,
                 modifier = Modifier.padding(8.dp)
             )
 
             Text(
-                post.username,
+                details.username,
                 style = MaterialTheme.typography.body2,
                 fontStyle = FontStyle.Italic,
                 modifier = Modifier.padding(8.dp)
@@ -55,7 +55,7 @@ fun DetailsView(
 
 
         Text(
-            post.body,
+            details.body,
             style = MaterialTheme.typography.body2,
             modifier = Modifier.padding(8.dp),
             fontWeight = FontWeight.Medium
