@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        apollo = Versions.apollo
+        apollo = versions.apollo
     }
 }
 
@@ -11,14 +11,14 @@ plugins {
 }
 
 android {
-    compileSdk Versions.sdk
+    compileSdk versions.sdk
 
     defaultConfig {
         applicationId "com.minafkamel.postroll"
-        minSdk Versions.minsdk
-        targetSdk Versions.sdk
-        versionCode Versions.versionCode
-        versionName Versions.versionName
+        minSdk versions.minsdk
+        targetSdk versions.sdk
+        versionCode versions.versionCode
+        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -43,7 +43,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.compose
+        kotlinCompilerExtensionVersion versions.compose
     }
     packagingOptions {
         resources {
@@ -54,33 +54,33 @@ android {
 
 dependencies {
 
-    implementation Dependencies.core
-    implementation Dependencies.ui
-    implementation Dependencies.material
-    implementation Dependencies.uiToolingPreview
-    implementation Dependencies.lifecycleRuntime
-    implementation Dependencies.activityCompose
-    implementation Dependencies.navigation
+    implementation androidDependencies.androidCore
+    implementation androidDependencies.ui
+    implementation androidDependencies.material
+    implementation androidDependencies.uiToolingPreview
+    implementation androidDependencies.lifecycleRuntime
+    implementation androidDependencies.activityCompose
+    implementation androidDependencies.navigation
 
-    implementation Dependencies.koin
-    implementation Dependencies.koinCompose
+    implementation koinDependencies.koin
+    implementation koinDependencies.koinCompose
 
-    implementation Dependencies.coroutinesAndroid
-    implementation Dependencies.coroutinesCore
+    implementation coroutinesDependencies.coroutinesAndroid
+    implementation coroutinesDependencies.coroutinesCore
 
-    implementation Dependencies.apollo
+    implementation apolloDependency
 
-    implementation Dependencies.loggingInterceptor
+    implementation loggingInterceptorDependency
 
-    testImplementation Dependencies.junit
-    testImplementation Dependencies.mockitoCore
-    androidTestImplementation Dependencies.junitExt
-    testImplementation Dependencies.mockitoKotlin
-    testImplementation Dependencies.mockito
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockitoCore
+    androidTestImplementation testDependencies.junitExt
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockito
 
-    androidTestImplementation Dependencies.composeUIiTest
-    androidTestImplementation Dependencies.composeJunit
-    debugImplementation Dependencies.composeManifest
+    androidTestImplementation testDependencies.composeUIiTest
+    androidTestImplementation testDependencies.composeJunit
+    debugImplementation testDependencies.composeManifest
 }
 
 apollo {
