@@ -1,13 +1,6 @@
-buildscript {
-    ext {
-        apollo = versions.apollo
-    }
-}
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.apollographql.apollo3' version "${apollo}"
 }
 
 android {
@@ -53,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation project(':data')
 
     implementation androidDependencies.androidCore
     implementation androidDependencies.ui
@@ -68,8 +62,6 @@ dependencies {
     implementation coroutinesDependencies.coroutinesAndroid
     implementation coroutinesDependencies.coroutinesCore
 
-    implementation apolloDependency
-
     implementation loggingInterceptorDependency
 
     testImplementation testDependencies.junit
@@ -83,6 +75,3 @@ dependencies {
     debugImplementation testDependencies.composeManifest
 }
 
-apollo {
-    packageName.set("com.minafkamel.postroll.data.models")
-}

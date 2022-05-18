@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        apollo = versions.apollo
+    }
+}
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.apollographql.apollo3' version "${apollo}"
+}
+
+android {
+    compileSdk versions.sdk
+
+    defaultConfig {
+        minSdk versions.minsdk
+        targetSdk versions.sdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation coroutinesDependencies.coroutinesAndroid
+    implementation coroutinesDependencies.coroutinesCore
+
+    //must be api (=transitive) to be able to use apollo's internal classes by other modules
+    api apolloDependency
+}
+
+apollo {
+    packageName.set("com.minafkamel.postroll.data.models")
+}
