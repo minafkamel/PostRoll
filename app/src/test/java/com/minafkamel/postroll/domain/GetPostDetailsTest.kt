@@ -3,8 +3,8 @@ package com.minafkamel.postroll.domain
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
 import com.minafkamel.postroll.data.models.GetPostDetailsQuery
 import com.minafkamel.postroll.data.posts.PostsRepository
-import com.minafkamel.postroll.fixtureDetails
-import com.minafkamel.postroll.fixturePostData
+import com.minafkamel.postroll.testfixtures.fixtureDetails
+import com.minafkamel.postroll.testfixtures.fixturePostData
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
 import junit.framework.TestCase

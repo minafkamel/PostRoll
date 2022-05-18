@@ -47,6 +47,7 @@ android {
 
 dependencies {
     implementation project(':data')
+    testImplementation project(':testfixtures')
 
     implementation androidDependencies.androidCore
     implementation androidDependencies.ui

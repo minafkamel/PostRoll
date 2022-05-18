@@ -1,4 +1,4 @@
-package com.minafkamel.postroll
+package com.minafkamel.postroll.testfixtures
 
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
 import com.minafkamel.postroll.data.models.GetPostDetailsQuery
