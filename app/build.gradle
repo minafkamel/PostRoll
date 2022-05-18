@@ -59,6 +59,8 @@ dependencies {
     implementation koinDependencies.koin
     implementation koinDependencies.koinCompose
 
+    implementation apolloDependencies.cache
+
     implementation coroutinesDependencies.coroutinesAndroid
     implementation coroutinesDependencies.coroutinesCore
 

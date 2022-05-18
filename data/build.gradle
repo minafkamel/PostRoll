@@ -41,7 +41,7 @@ dependencies {
     implementation coroutinesDependencies.coroutinesCore
 
     //must be api (=transitive) to be able to use apollo's internal classes by other modules
-    api apolloDependency
+    api apolloDependencies.runtime
 }
 
 apollo {

@@ -1,11 +1,8 @@
 package com.minafkamel.postroll.domain
 
 import com.minafkamel.postroll.data.models.GetAllPostsQuery
-import com.minafkamel.postroll.data.models.GetPostDetailsQuery
 import com.minafkamel.postroll.data.posts.PostsRepository
-import com.minafkamel.postroll.testfixtures.fixtureDetails
 import com.minafkamel.postroll.testfixtures.fixturePostData
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
 import junit.framework.TestCase
 import kotlinx.coroutines.flow.flowOf
@@ -20,7 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class GetPostDetailsTest : TestCase() {
 
     @Test
-    fun `creates Post domain object from getAllPosts and getPostDetails results`() = runBlocking {
+    fun `creates Post domain object from getAllPosts results`() = runBlocking {
         val id = "1"
         val title = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
         val body =
@@ -28,8 +25,17 @@ class GetPostDetailsTest : TestCase() {
         val name = "Leanne Graham"
         val username = "Bret"
         val (_, useCase) = Arrangement()
-            .withPostsData(listOf(fixturePostData(id = id, title = title, body = body)))
-            .withPostDetailsDetails(fixtureDetails(name = name, username = username))
+            .withPostsData(
+                listOf(
+                    fixturePostData(
+                        id = id,
+                        title = title,
+                        body = body,
+                        name = name,
+                        username = username
+                    )
+                )
+            )
             .arrange()
 
         val post = useCase(GetPostDetails.Params(id)).single()
@@ -45,14 +51,8 @@ class GetPostDetailsTest : TestCase() {
         val repository: PostsRepository = mock(PostsRepository::class.java)
 
         fun withPostsData(dataList: List<GetAllPostsQuery.Data1>) = apply {
-            whenever(repository.getAllPosts(any())).thenReturn(
+            whenever(repository.getAllPosts()).thenReturn(
                 flowOf(GetAllPostsQuery.Data(GetAllPostsQuery.Posts(dataList)))
-            )
-        }
-
-        fun withPostDetailsDetails(post: GetPostDetailsQuery.Post) = apply {
-            whenever(repository.getPostDetails(any())).thenReturn(
-                flowOf(GetPostDetailsQuery.Data(post))
             )
         }
 

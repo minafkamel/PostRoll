@@ -60,7 +60,5 @@ fun DetailsView(
             modifier = Modifier.padding(8.dp),
             fontWeight = FontWeight.Medium
         )
-
-
     }
 }
