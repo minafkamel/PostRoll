@@ -1,9 +1,11 @@
 package com.minafkamel.postroll.ui.details
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.minafkamel.postroll.R
@@ -37,6 +39,9 @@ fun DetailsBody(details: UiState<GetPostDetails.Details>) {
         }
         is UiState.Loading -> {
             LoadingView()
+        }
+        is UiState.Error -> {
+            Toast.makeText(LocalContext.current, R.string.unexpected_error, Toast.LENGTH_LONG).show()
         }
     }
 }

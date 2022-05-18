@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.minafkamel.postroll.domain.GetPostDetails
 import com.minafkamel.postroll.util.UiState
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val getPostDetails: GetPostDetails, postId: String) : ViewModel() {
@@ -17,6 +18,7 @@ class DetailsViewModel(private val getPostDetails: GetPostDetails, postId: Strin
         viewModelScope.launch {
             details = UiState.Loading
             getPostDetails(GetPostDetails.Params(postId))
+                .catch { details = UiState.Error }
                 .collect {
                     details = UiState.Success(it)
                 }
