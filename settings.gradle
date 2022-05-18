@@ -16,3 +16,4 @@ rootProject.name = "PostRoll"
 include ':app'
 include ':data'
 include ':testfixtures'
+include ':domain'

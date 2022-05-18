@@ -46,8 +46,7 @@ android {
 }
 
 dependencies {
-    implementation project(':data')
-    testImplementation project(':testfixtures')
+    implementation project(':domain')
 
     implementation androidDependencies.androidCore
     implementation androidDependencies.ui
@@ -66,13 +65,9 @@ dependencies {
     implementation loggingInterceptorDependency
 
     testImplementation testDependencies.junit
-    testImplementation testDependencies.mockitoCore
-    androidTestImplementation testDependencies.junitExt
-    testImplementation testDependencies.mockitoKotlin
     testImplementation testDependencies.mockito
 
     androidTestImplementation testDependencies.composeUIiTest
     androidTestImplementation testDependencies.composeJunit
     debugImplementation testDependencies.composeManifest
 }
-
